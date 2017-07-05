@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <title>OB Widget Architecture</title>
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sanitize.css/2.0.0/sanitize.min.css">-->
+    <style>
+      #widgets {
+        display: flex;
+        flex-direction: row;
+      }
+
+      #widgeta, #widgetb {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    OpenBet isolated widgets - POC
+
+    <article id="widgets">
+      <div id="widgeta"></div>
+      <div id="widgetb"></div>
+    </article>
+
+    <script type="text/javascript" src="http://localhost:3001/static/js/bundle.js"></script>
+    <script type="text/javascript" src="http://localhost:3002/static/js/bundle.js"></script>
+  </body>
+</html>
