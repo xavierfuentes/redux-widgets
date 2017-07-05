@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { isFetching } from '../../data/ui/selectors';
 import { outcomesSelector } from '../../data/outcomes/selectors';
-import { deleteOutcome, deleteAllOutcomes } from '../../data/outcomes/actions';
+import { removeOutcome, removeAllOutcomes } from '../../data/outcomes/actions';
 import AppLayout from '../../components/AppLayout/AppLayout';
 
 const mapStateToProps = state => ({
@@ -13,8 +13,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  deleteOutcome,
-  deleteAllOutcomes,
+  removeOutcome,
+  removeAllOutcomes,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);

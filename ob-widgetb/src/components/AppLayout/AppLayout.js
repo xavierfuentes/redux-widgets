@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AppLayout = ({ outcomes, deleteOutcome, deleteAllOutcomes, isFetching }) => {
-  const handleDeleteOutcome = ({ target }) => {
+const AppLayout = ({ outcomes, removeOutcome, removeAllOutcomes, isFetching }) => {
+  const handleRemoveOutcome = ({ target }) => {
     const outcomeId = target.getAttribute('data-outcome');
-    deleteOutcome(outcomeId);
+    removeOutcome(outcomeId);
   };
 
   return (
     <article>
       <h2>Betslip</h2>
-      <button onClick={deleteAllOutcomes} disabled={!outcomes.length}>Clear Slip</button>
+      <button onClick={removeAllOutcomes} disabled={!outcomes.length}>Clear Slip</button>
       {(outcomes.length &&
         outcomes.map(outcome =>
           <article key={outcome.id}>
             <span>{outcome.name}</span>
-            <button onClick={handleDeleteOutcome} data-outcome={outcome.id}>x</button>
+            <button onClick={handleRemoveOutcome} data-outcome={outcome.id}>x</button>
           </article>
         )) ||
         <div>Empty slip</div>}
@@ -33,7 +33,7 @@ AppLayout.propTypes = {
       price: PropTypes.string.isRequired,
     })
   ),
-  deleteOutcome: PropTypes.func.isRequired,
+  removeOutcome: PropTypes.func.isRequired,
 };
 
 AppLayout.defaultProps = {

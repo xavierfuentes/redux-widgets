@@ -1,6 +1,16 @@
 import { createSelector } from 'reselect';
+import { openBetHelpers } from 'ob-sdk';
 
-const outcomesState = state => state.outcomes;
+import { AMOUNT_OF_OUTCOMES_TO_LIST } from './constants';
 
-export const allOutcomesSelector = createSelector(outcomesState, (outcomes) => outcomes.all);
-export const activeOutcomesSelector = createSelector(outcomesState, (outcomes) => outcomes.active);
+const globalState = state => state.openbet;
+
+export const allOutcomesSelector = createSelector(globalState, state => state.outcomes);
+export const allActiveOutcomesSelector = createSelector(globalState, outcomes => outcomes && outcomes.active);
+
+// this shows off data management in selectors
+// it could have some function to choose what kind or how many outcomes we need
+// e.g. a specific market, a specific event, a combination of geolocation and market, etc.
+export const outcomesSelector = createSelector(allOutcomesSelector, outcomes => {
+  return outcomes && outcomes.length > 0 && outcomes.slice(0, AMOUNT_OF_OUTCOMES_TO_LIST).map(openBetHelpers.getMiniOutcome);
+});

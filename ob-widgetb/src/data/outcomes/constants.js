@@ -1,0 +1,1 @@
+export const AMOUNT_OF_OUTCOMES_TO_LIST = 4;

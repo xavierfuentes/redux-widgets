@@ -10,6 +10,12 @@ function openBetMiddleware(store) {
           return next(action);
         }
 
+        case types.REMOVE_OUTCOME_REQUEST: {
+          // do something cool every time this action is dispatched
+          console.info('OpenBet middleware taking control of the REMOVE_OUTCOME_REQUEST!', action);
+          return next(action);
+        }
+
         default: {
           return next(action);
         }

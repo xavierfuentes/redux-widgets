@@ -1,16 +1,16 @@
 import { ASYNC_REQUEST_STARTED, ASYNC_REQUEST_FINISHED } from '../ui/types';
 
 const initialState = {
-  isFetching: false,
+  fetching: false,
 };
 
 const uiReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case ASYNC_REQUEST_STARTED:
-      return { ...state, isFetching: true };
+      return { ...state, fetching: true };
 
     case ASYNC_REQUEST_FINISHED:
-      return { ...state, isFetching: false };
+      return { ...state, fetching: false };
 
     default:
       return state;

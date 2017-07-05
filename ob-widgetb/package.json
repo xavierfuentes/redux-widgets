@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ob-sdk": "file:///space/Projects/ob-sdk/src/es5",
+    "ob-sdk": "file:///Users/xavier/Projects/redux-widgets/ob-sdk/src/es5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
