@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { openBetHelpers } from 'ob-sdk';
+import { openbetHelpers } from 'ob-sdk';
 
 import { AMOUNT_OF_OUTCOMES_TO_LIST } from './constants';
 
@@ -12,5 +12,5 @@ export const allActiveOutcomesSelector = createSelector(globalState, outcomes =>
 // it could have some function to choose what kind or how many outcomes we need
 // e.g. a specific market, a specific event, a combination of geolocation and market, etc.
 export const outcomesSelector = createSelector(allOutcomesSelector, outcomes => {
-  return outcomes && outcomes.length > 0 && outcomes.slice(0, AMOUNT_OF_OUTCOMES_TO_LIST).map(openBetHelpers.getMiniOutcome);
+  return outcomes && outcomes.length > 0 && outcomes.slice(0, AMOUNT_OF_OUTCOMES_TO_LIST).map(openbetHelpers.getMiniOutcome);
 });

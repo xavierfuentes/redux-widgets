@@ -34,12 +34,12 @@ function removeAllOutcomesRequest() {
   return { type: types.REMOVE_ALL_OUTCOMES_REQUEST };
 }
 
-function removeAllOutcomesSuccess(outcomeId) {
+function removeAllOutcomesSuccess() {
   return { type: types.REMOVE_ALL_OUTCOMES_SUCCESS };
 }
 
 function removeAllOutcomesFailure(error) {
-  return { type: types.REMOVE_ALL_OUTCOMES_FAILURE };
+  return { type: types.REMOVE_ALL_OUTCOMES_FAILURE, payload: { error: error } };
 }
 
 function addOutcome(outcomeId) {
@@ -74,14 +74,14 @@ function removeOutcome(outcomeId) {
 
 function removeAllOutcomes(outcomeId) {
   return function(dispatch) {
-    dispatch(removeOutcomeRequest());
+    dispatch(removeAllOutcomesRequest());
 
     return callApi().then(
       function(result) {
-        return dispatch(removeOutcomeSuccess(outcomeId));
+        return dispatch(removeAllOutcomesSuccess());
       },
       function(error) {
-        return dispatch(removeOutcomeFailure(error));
+        return dispatch(removeAllOutcomesFailure(error));
       }
     );
   };

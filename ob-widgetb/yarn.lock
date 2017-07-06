@@ -4199,7 +4199,7 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-"ob-sdk@file:///Users/xavier/Projects/redux-widgets/ob-sdk/src/es5":
+"ob-sdk@file:///space/Projects/spa/ob-sdk/src/es5":
   version "1.0.0"
   dependencies:
     react "^15.6.1"

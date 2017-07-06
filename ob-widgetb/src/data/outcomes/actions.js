@@ -1,10 +1,10 @@
-import { asyncRequestStarted, asyncRequestFinished } from '../ui/actions';
+import { openbetActions } from 'ob-sdk';
 
-import { openBetActions } from 'ob-sdk';
+import { asyncRequestStarted, asyncRequestFinished } from '../ui/actions';
 
 export const removeOutcome = outcomeId => dispatch => {
   dispatch(asyncRequestStarted());
-  dispatch(openBetActions.removeOutcome(outcomeId)).then(result => {
+  dispatch(openbetActions.removeOutcome(outcomeId)).then(result => {
     dispatch(asyncRequestFinished());
   });
   // todo: on error dispatch a local action if needed (and go back to the previous state?)
@@ -12,7 +12,7 @@ export const removeOutcome = outcomeId => dispatch => {
 
 export const removeAllOutcomes = () => dispatch => {
   dispatch(asyncRequestStarted());
-  dispatch(openBetActions.removeAllOutcomes()).then(result => {
+  dispatch(openbetActions.removeAllOutcomes()).then(result => {
     dispatch(asyncRequestFinished());
   });
 }

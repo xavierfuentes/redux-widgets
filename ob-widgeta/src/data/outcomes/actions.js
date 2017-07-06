@@ -1,10 +1,10 @@
-import { asyncRequestStarted, asyncRequestFinished } from '../ui/actions';
+import { openbetActions } from 'ob-sdk';
 
-import { openBetActions } from 'ob-sdk';
+import { asyncRequestStarted, asyncRequestFinished } from '../ui/actions';
 
 export const addOutcome = outcomeId => dispatch => {
   dispatch(asyncRequestStarted());
-  dispatch(openBetActions.addOutcome(outcomeId)).then(result => {
+  dispatch(openbetActions.addOutcome(outcomeId)).then(result => {
     dispatch(asyncRequestFinished());
   });
   // todo: on error dispatch a local action if needed (and go back to the previous state?)

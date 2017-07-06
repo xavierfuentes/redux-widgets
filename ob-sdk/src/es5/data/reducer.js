@@ -19,6 +19,7 @@ function outcomesReducer(state, action) {
 
   switch (action.type) {
     case types.REMOVE_OUTCOME_REQUEST:
+    case types.REMOVE_ALL_OUTCOMES_REQUEST:
     case types.ADD_OUTCOME_REQUEST: {
       return merge(state, { fetching: true });
     }
@@ -30,13 +31,21 @@ function outcomesReducer(state, action) {
     case types.REMOVE_OUTCOME_SUCCESS: {
       return merge(state, {
         fetching: false,
-        active: state.active.filter(function(outcome) {
-          return outcome.id !== action.payload.outcomeId;
+        active: state.active.filter(function(activeOutcomeId) {
+          return activeOutcomeId !== action.payload.outcomeId;
         }),
       });
     }
 
+    case types.REMOVE_ALL_OUTCOMES_SUCCESS: {
+      return merge(state, {
+        fetching: false,
+        active: [],
+      });
+    }
+
     case types.REMOVE_OUTCOME_FAILURE:
+    case types.REMOVE_ALL_OUTCOMES_FAILURE:
     case types.ADD_OUTCOME_FAILURE: {
       return merge(state, { fetching: false });
     }

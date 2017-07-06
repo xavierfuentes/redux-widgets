@@ -1,13 +1,15 @@
-var openBetMiddleware = require('./data/middleware');
-var openBetReducer = require('./data/reducer');
+var openbetStore = require('./data/store');
+var openbetReducer = require('./data/reducer');
 var types = require('./data/types');
+var constants = require('./data/constants');
 var actions = require('./data/actions');
 var helpers = require('./data/helpers');
 
 module.exports = {
-  openBetMiddleware: openBetMiddleware,
-  openBetReducer: openBetReducer,
-  openBetTypes: types,
-  openBetActions: actions,
-  openBetHelpers: helpers,
+  openbetStore: openbetStore,
+  openbetReducer: openbetReducer,
+  openbetTypes: types,
+  openbetConstants: constants,
+  openbetActions: actions,
+  openbetHelpers: helpers,
 };
