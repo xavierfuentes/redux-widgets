@@ -10,10 +10,11 @@ import App from './containers/App/App';
 
 const initialState = {};
 const storeId = Math.floor(Math.random() * 10000); // random id
-const store = configureStore(initialState, storeId);
-console.log(`identifying widgeta's store as ${storeId}`);
+const store = configureStore(initialState);
+
 // the synchroniser will check what actions this store is missing and dispatch them
 const sync = openbetStore.synchroniser(store, storeId);
+
 // every time this event is fired we check for missing actions
 window.addEventListener(openbetConstants.OB_STORE_SYNC_EVENT_NAME, sync);
 

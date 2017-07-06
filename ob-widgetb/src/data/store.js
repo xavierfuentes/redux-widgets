@@ -7,8 +7,8 @@ import reducers from './reducers';
 
 const configureStore = (initialState, storeId) => {
   const loggerMiddleware = createLogger({ collapsed: true });
-  const openbetMiddleware = openbetStore.createMiddleware(storeId);
-  const middlewares = [thunkMiddleware, loggerMiddleware, openbetMiddleware];
+  const openbetMiddleware = openbetStore.middleware;
+  const middlewares = [thunkMiddleware, openbetMiddleware];
   const enhancers = [applyMiddleware(...middlewares)];
 
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
