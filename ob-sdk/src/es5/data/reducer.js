@@ -31,7 +31,7 @@ function outcomesReducer(state, action) {
       return merge(state, {
         fetching: false,
         active: state.active.filter(function(outcome) {
-          return outcome.id !== payload.outcomeId;
+          return outcome.id !== action.payload.outcomeId;
         }),
       });
     }

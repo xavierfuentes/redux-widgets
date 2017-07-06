@@ -47,7 +47,7 @@ function addOutcome(outcomeId) {
     dispatch(addOutcomeRequest());
 
     return callApi().then(
-      function(sauce) {
+      function(result) {
         return dispatch(addOutcomeSuccess(outcomeId));
       },
       function(error) {
@@ -62,7 +62,7 @@ function removeOutcome(outcomeId) {
     dispatch(removeOutcomeRequest());
 
     return callApi().then(
-      function(sauce) {
+      function(result) {
         return dispatch(removeOutcomeSuccess(outcomeId));
       },
       function(error) {
@@ -77,7 +77,7 @@ function removeAllOutcomes(outcomeId) {
     dispatch(removeOutcomeRequest());
 
     return callApi().then(
-      function(sauce) {
+      function(result) {
         return dispatch(removeOutcomeSuccess(outcomeId));
       },
       function(error) {

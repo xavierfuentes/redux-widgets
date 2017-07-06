@@ -1,16 +1,17 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { openBetMiddleware } from 'ob-sdk';
 
-// import { openBetMiddleware } from 'ob-sdk';
 import reducers from './reducers';
 
 const loggerMiddleware = createLogger({
   collapsed: true,
 });
+const obMiddleware = openBetMiddleware.middleware;
 
 const configureStore = initialState => {
-  const middlewares = [thunkMiddleware, loggerMiddleware];
+  const middlewares = [thunkMiddleware, loggerMiddleware, obMiddleware];
   const enhancers = [applyMiddleware(...middlewares)];
 
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
