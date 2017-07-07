@@ -1,12 +1,12 @@
-var types = require('./types');
-var constants = require('./constants');
+var localStorage = {
+  clear: function() {},
+  setItem: function() {},
+  getItem: function() {},
+};
 
-var typesArray = [];
-for (var key in types) {
-  typesArray.push(types[key]);
+var window = {
+  dispatchEvent: function() {}
 }
-
-var storageKey = constants.OB_STORAGE_KEY;
 
 function createMiddleware(storeId) {
   localStorage.clear();
@@ -38,7 +38,7 @@ function createMiddleware(storeId) {
             window.dispatchEvent(event);
           } else {
             if (
-              (lastGlobalAction.storeId === storeId) ||
+              lastGlobalAction.storeId === storeId ||
               (lastGlobalAction.storeId !== storeId && lastGlobalAction.action.type !== wrappedAction.action.type) ||
               (!!lastGlobalAction && !!lastOwnAction && lastGlobalAction.action.type !== lastOwnAction.action.type)
             ) {
@@ -54,19 +54,3 @@ function createMiddleware(storeId) {
     };
   };
 }
-
-function synchroniser(store, storeId) {
-  return function() {
-    var lastGlobalAction = JSON.parse(localStorage.getItem(storageKey));
-    var lastOwnAction = JSON.parse(localStorage.getItem(storageKey + ':store:' + storeId));
-
-    if (lastGlobalAction.storeId !== storeId) {
-      store.dispatch(lastGlobalAction.action);
-    }
-  };
-}
-
-module.exports = {
-  createMiddleware: createMiddleware,
-  synchroniser: synchroniser,
-};
