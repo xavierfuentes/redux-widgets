@@ -1,4 +1,4 @@
-import { openbetActions } from 'ob-sdk';
+import { openbetActions } from 'ob-store-tools';
 
 import { asyncRequestStarted, asyncRequestFinished } from '../ui/actions';
 

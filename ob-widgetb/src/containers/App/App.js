@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-// import { placeBet } from 'ob-sdk';
+// import { placeBet } from 'ob-store-tools';
 
 import { isFetching } from '../../data/ui/selectors';
 import { outcomesSelector } from '../../data/outcomes/selectors';

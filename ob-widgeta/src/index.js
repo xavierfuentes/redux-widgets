@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { openbetStore, openbetConstants } from 'ob-sdk';
+import { openbetStore, openbetConstants } from 'ob-store-tools';
 
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './data/store';
@@ -9,14 +9,11 @@ import configureStore from './data/store';
 import App from './containers/App/App';
 
 const initialState = {};
-const storeId = Math.floor(Math.random() * 10000); // random id
-const store = configureStore(initialState);
-
-// the synchroniser will check what actions this store is missing and dispatch them
-const sync = openbetStore.synchroniser(store, storeId);
+const storeId = Math.floor(Math.random() * 10000);
+const store = configureStore(initialState, storeId);
 
 // every time this event is fired we check for missing actions
-window.addEventListener(openbetConstants.OB_STORE_SYNC_EVENT_NAME, sync);
+window.addEventListener(openbetConstants.OB_STORE_SYNC_EVENT_NAME, openbetStore.synchroniser(store, storeId));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { openbetStore } from 'ob-sdk';
+// import { createLogger } from 'redux-logger';
+import { openbetStore } from 'ob-store-tools';
 
 import reducers from './reducers';
 
 const configureStore = (initialState, storeId) => {
-  const loggerMiddleware = createLogger({ collapsed: true });
-  const openbetMiddleware = openbetStore.middleware;
+  // const loggerMiddleware = createLogger({ collapsed: true });
+  const openbetMiddleware = openbetStore.createMiddleware(storeId);
   const middlewares = [thunkMiddleware, openbetMiddleware];
   const enhancers = [applyMiddleware(...middlewares)];
 

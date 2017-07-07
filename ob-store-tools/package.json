@@ -1,7 +1,7 @@
 {
-  "name": "ob-sdk",
+  "name": "ob-store-tools",
   "version": "0.1.0",
-  "main": "build/static/js/index.js",
+  "main": "src/es5/index.js",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

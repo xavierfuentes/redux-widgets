@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { openbetHelpers } from 'ob-sdk';
+import { openbetHelpers } from 'ob-store-tools';
 
 import { AMOUNT_OF_OUTCOMES_TO_LIST } from './constants';
 

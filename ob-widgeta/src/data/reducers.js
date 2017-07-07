@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { openbetReducer as openbet } from 'ob-sdk';
+import { openbetReducer as openbet } from 'ob-store-tools';
 
 import ui from './ui/reducers';
 
